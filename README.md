@@ -32,7 +32,6 @@ Fungsi URL dapat digunakan di seluruh aplikasi untuk membangun URL yang benar be
 
 ```php
 <?php
-$url = $urlHelper->url('assets/css/style.css');
-echo "<link rel='stylesheet' href='{$url}'>";
+echo "<link rel='stylesheet' href='<?= url('assets/css/style.css') ?>'>";
 ?>
 ```
