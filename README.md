@@ -1,7 +1,7 @@
 # PHP MVC
 
 <!-- <p align="center"><a href="https://php-mvc.com" target="_blank"><img src="/public/logo.png" width="400" alt="PHP MVC Logo"></a></p> -->
-<p align="center"><img src="/public/logo.png" width="100" alt="PHP MVC Logo"></p>
+<p align="center"><img src="/public/logo.png" width="200" alt="PHP MVC Logo"></p>
 
 Aplikasi ini adalah kerangka kerja (framework) MVC (Model-View-Controller) sederhana yang dikembangkan menggunakan bahasa pemrograman PHP. Framework ini dirancang untuk membantu Anda dalam membangun aplikasi web dengan struktur yang terorganisir dan pemisahan tanggung jawab antara model, tampilan, dan pengontrol.
 
@@ -16,7 +16,6 @@ Aplikasi ini adalah kerangka kerja (framework) MVC (Model-View-Controller) seder
 1. Clone repositori ini: `git clone https://github.com/AhmadMuzayyin/php-mvc.git`
 2. Instal dependensi menggunakan Composer: `composer install`
 3. Salin file `.env.example` ke `.env` dan sesuaikan konfigurasi database.
-4. Jalankan migrasi database: `php vendor/bin/phinx migrate`
 
 ## Struktur Folder
 
