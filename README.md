@@ -29,7 +29,7 @@ Aplikasi ini adalah kerangka kerja (framework) MVC (Model-View-Controller) seder
 
 ## Penggunaan Fungsi URL
 
-Fungsi URL dapat digunakan di seluruh aplikasi untuk membangun URL yang benar berdasarkan struktur folder public. Contoh penggunaan:
+Fungsi URL dapat digunakan di seluruh file view pada folder `resources/views` untuk membangun URL yang benar berdasarkan struktur folder public. Contoh penggunaan:
 
 ```php
 <?php
