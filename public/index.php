@@ -2,28 +2,16 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-Dotenv\Dotenv::createImmutable(__DIR__ . '/..')->load();
-// var_dump(Dotenv\Dotenv::createImmutable(__DIR__ . '/..')->load());
-// die();
-
 use Illuminate\Database\Capsule\Manager as Capsule;
+use App\Routes\Router;
+
+Dotenv\Dotenv::createImmutable(__DIR__ . '/..')->load();
 
 // Inisialisasi Capsule
 $capsule = new Capsule;
-
-// Menambahkan koneksi dari config
 $capsule->addConnection(require_once __DIR__ . '/../config/database.php');
-
-// Make this Capsule instance available globally via static methods
 $capsule->setAsGlobal();
-
-// Setup the Eloquent ORM
 $capsule->bootEloquent();
-
-use App\Routes\Router;
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
-$dotenv->load();
 
 $request = Symfony\Component\HttpFoundation\Request::createFromGlobals();
 

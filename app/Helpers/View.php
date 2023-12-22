@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+require_once __DIR__ . '/Url.php';
 class View
 {
 
