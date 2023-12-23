@@ -16,7 +16,7 @@ Aplikasi ini adalah kerangka kerja (framework) MVC (Model-View-Controller) seder
 2. Instal dependensi menggunakan Composer: `composer install`
 3. Instal dependensi menggunakan NPM: `npm install`
 4. Salin file `.env.example` ke `.env` dan sesuaikan konfigurasi database.
-5. Jalankan perintah `npx tailwindcss -i resources/css/input.css -o public/css/output.css --watch` untuk mendapatkan perubahan tampilan css dari tailwind. tapi anda dapat menghapus fitur ini dengan tidak menjalankan perintah nomor 3 dan perintah nomor 5 dan anda harus meletakan semua template ada di dalam folder `resources/views`
+5. Jalankan perintah `npx tailwindcss -i resources/css/input.css -o public/css/output.css --watch` untuk mendapatkan perubahan tampilan css dari tailwind. anda dapat menghapus fitur ini dengan tidak menjalankan perintah nomor 3 dan perintah nomor 5 dan anda harus meletakan semua template anda di dalam folder `resources/views`
 6. Jalankan aplikasi dengan mengetikan perintah `php -S localhost:8000 -t public`
 
 ## Struktur Folder
@@ -27,12 +27,8 @@ Aplikasi ini adalah kerangka kerja (framework) MVC (Model-View-Controller) seder
 - **resources:** File sumber daya seperti file view, CSS, dan JavaScript.
 - **routes:** Definisi rute aplikasi.
 
-## Penggunaan Fungsi URL
+## Terimakasih Kepada
 
-Fungsi URL dapat digunakan di seluruh file view pada folder `resources/views` untuk membangun URL yang benar berdasarkan struktur folder public. Contoh penggunaan:
-
-```php
-<?php
-echo "<link rel='stylesheet' href='<?= url('assets/css/style.css') ?>'>";
-?>
-```
+1. Semua orang yang telah mendukung pengembang.
+2. Pengembang [laravel](https://laravel.com), karena pembuatan project ini terinspirasi dari laravel disertai kebutuhan pengembang sendiri.
+3. Semua orang yang ingin berkontribusi pada project ini, karena pengembang sendiri sadar project ini jauh dari kata sempurna.

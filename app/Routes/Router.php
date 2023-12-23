@@ -5,37 +5,60 @@ namespace App\Routes;
 class Router
 {
 
-  protected static $routes = [];
+  protected $routes = [];
+  protected $middlewares = [];
 
-  public static function get($uri, $callback)
+  public function get($uri, $callback)
   {
-    self::$routes['GET'][$uri] = $callback;
+    $this->routes['GET'][$uri] = $callback;
   }
 
-  public static function post($uri, $callback)
+  public function post($uri, $callback)
   {
-    self::$routes['POST'][$uri] = $callback;
+    $this->routes['POST'][$uri] = $callback;
   }
 
-  public static function put($uri, $callback)
+  public function put($uri, $callback)
   {
-    self::$routes['PUT'][$uri] = $callback;
+    $this->routes['PUT'][$uri] = $callback;
   }
 
-  public static function delete($uri, $callback)
+  public function delete($uri, $callback)
   {
-    self::$routes['DELETE'][$uri] = $callback;
+    $this->routes['DELETE'][$uri] = $callback;
   }
 
+  public function middleware(array $middlewares)
+  {
+    $this->middlewares = $middlewares;
+    return $this;
+  }
+  public function group(\Closure $callback)
+  {
+    $callback($this);
+  }
+  protected function applyMiddlewares()
+  {
+    foreach ($this->middlewares as $middleware) {
+      $middlewareInstance = new $middleware;
+      $middlewareInstance->handle();
+    }
+  }
   public function dispatch($method, $uri)
   {
     $method = strtoupper($method);
-
-    if (array_key_exists($method, self::$routes) && array_key_exists($uri, self::$routes[$method])) {
-      $callback = self::$routes[$method][$uri];
+    if (array_key_exists($method, $this->routes) && array_key_exists($uri, $this->routes[$method])) {
+      $this->applyMiddlewares();
+      $callback = $this->routes[$method][$uri];
+      if (is_array($callback)) {
+        $controller = $callback[0];
+        $method = $callback[1];
+        $controllerInstance = new $controller;
+        call_user_func_array([$controllerInstance, $method], []);
+      }
       call_user_func($callback);
     } else {
-      echo "404 Not Found";
+      echo "<h1>route not found</h1>";
     }
   }
 }

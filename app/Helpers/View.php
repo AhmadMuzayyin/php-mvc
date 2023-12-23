@@ -2,7 +2,6 @@
 
 namespace App\Helpers;
 
-require_once __DIR__ . '/Url.php';
 class View
 {
 
@@ -13,8 +12,9 @@ class View
 
     ob_start();
 
-    include "Helper.php";
-    include __DIR__ . "/../../resources/views/{$path}.php";
+    require_once __DIR__ . '/Csrf.php';
+    require_once __DIR__ . '/Url.php';
+    require_once __DIR__ . "/../../resources/views/{$path}.php";
 
     $content = ob_get_contents();
 

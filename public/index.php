@@ -15,8 +15,8 @@ $capsule->bootEloquent();
 
 $request = Symfony\Component\HttpFoundation\Request::createFromGlobals();
 
-$uri = $request->server->get('REQUEST_URI');
-$method = $request->server->get('REQUEST_METHOD');
+$uri = $request->getPathInfo();
+$method = $request->getMethod();
 
 $router = new Router;
 
